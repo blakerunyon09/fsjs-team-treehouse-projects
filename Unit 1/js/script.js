@@ -12,7 +12,7 @@ var quotes = [
     year: "1880"
   },
   {
-    quote: "Every man in a bank hates what the bank does, and yet the bank does it. The bank is something more than men, it's the monster. Men made it, but they can't control it.",
+    quote: "Every man in a bank hates what the bank does, and yet the bank does it. It's something more than men, it's the monster. Men made it, but they can't control it.",
     source: "John Steinbeck",
     year: "1939"
   },  
@@ -39,24 +39,18 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
-// Create Random Number
-
-// var quoteNum = getRandomInt(quotes.length);
-
-/***
- * `printQuote` function
-***/
+// Print Quote Function
 
 function printQuote() {
   var quoteNum = getRandomInt(quotes.length);
   document.getElementsByClassName('quote')[0].innerText = quotes[quoteNum]["quote"]
   document.getElementsByClassName('source')[0].innerText = quotes[quoteNum]["source"]
-  document.getElementsByClassName('year')[0].innerText = quotes[quoteNum]["year"]
 }
 
-/***
- * click event listener for the print quote button
- * DO NOT CHANGE THE CODE BELOW!!
-***/
+//On Load printQuote()
 
-document.getElementById('load-quote').addEventListener("click", printQuote, false);
+printQuote();
+
+// On Click printQuote()
+
+var buttonClick = document.getElementById('load-quote').addEventListener("click", printQuote, false);
