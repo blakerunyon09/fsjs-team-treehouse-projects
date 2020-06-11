@@ -9,12 +9,14 @@ var quotes = [
   {
     quote: "We are all responsible for everyone else—but I am more responsible than all the others.",
     source: "Fyodor Dostoyevsky",
+    citation: "Brothers Karamazov",
     year: "1880",
     country: "Russia"
   },
   {
     quote: "Every man in a bank hates what the bank does, and yet the bank does it. It's something more than men, it's the monster. Men made it, but they can't control it.",
     source: "John Steinbeck",
+    citation: "Grapes of Wrath",
     year: "1939",
     country: "United States"
   },  
@@ -32,7 +34,8 @@ var quotes = [
   {
     quote: "In any moment of decision, the best thing you can do is the right thing. The worst thing you can do is nothing.",
     source: "Teddy Roosevelt",
-    year: "1907"
+    year: "1907",
+    country: "United States"
   }
 ]
 
@@ -42,30 +45,38 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
-// Random RGB Color
+// Random RGB Color - Credit: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
 
 function randomColor() {
   var red = Math.floor(Math.random() * 256);
   var green = Math.floor(Math.random() * 256);
   var blue = Math.floor(Math.random() * 256);
-  var bgColor = `rgb(${red},${green},${blue})`;
+  var RGB = `rgb(${red},${green},${blue})`;
 
-  document.body.style.background = bgColor;
+  document.body.style.background = RGB;
 }
 
 // Print Quote Function
 
 function printQuote() {
   var quoteNum = getRandomInt(quotes.length);
-  document.getElementsByClassName('quote')[0].innerText = quotes[quoteNum]["quote"]
-  document.getElementsByClassName('source')[0].innerHTML = 
-    `${quotes[quoteNum]["source"]}<span class="year">${quotes[quoteNum]["year"]}</span>`
-  if ( quotes[quoteNum]["country"] ) {
-    document.getElementsByClassName('source')[0].innerHTML = 
-    `${quotes[quoteNum]["source"]}<span class="year">${quotes[quoteNum]["year"]}</span><span class="country">, ${quotes[quoteNum]["country"]}</span>`
+  var HTML = `
+    <p class="quote">${quotes[quoteNum]["quote"]}</p>
+    <p class="source">${quotes[quoteNum]["source"]}
+    `;
+  if (quotes[quoteNum]["citation"]) {
+    HTML += `<span class="citation">${quotes[quoteNum]["citation"]}</span>`;
   }
-
+  if (quotes[quoteNum]["year"]) {
+    HTML += `<span class="year">${quotes[quoteNum]["year"]}</span>`;
+  }
+  if (quotes[quoteNum]["country"]) {
+    HTML += `<span> - ${quotes[quoteNum]["country"]}</span>`;
+  }
+  HTML += `</p>`
+  document.getElementById("quote-box").innerHTML = HTML;
   randomColor();
+
 }
 
 //On Load printQuote()
@@ -77,11 +88,6 @@ randomColor();
 
 var buttonClick = document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
-// Auto Change Quotes
+// Auto Change Quotes - Credit: https://www.w3schools.com/jsref/met_win_setinterval.asp
 
-const interval = setInterval(function() {
-  printQuote();
-}, 5000);
-
-// Add Additional Object Property
-
+setInterval(function() { printQuote(); }, 5000);
