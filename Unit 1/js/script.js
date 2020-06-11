@@ -41,10 +41,6 @@ var quotes = [
 
 // Random Number Function
 
-/*function getRandomQuote(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-};*/
-
 function getRandomQuote() {
   var i = Math.floor(Math.random() * Math.floor(quotes.length));
   quote = quotes[i];
