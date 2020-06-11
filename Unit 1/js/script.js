@@ -43,7 +43,7 @@ let quotes = [
 
 function getRandomQuote() {
   let i = Math.floor(Math.random() * Math.floor(quotes.length));
-  return quote = quotes[i];
+  return quotes[i];
 };
 
 // Random RGB Color - Credit: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
@@ -60,7 +60,7 @@ function randomColor() {
 // Print Quote Function
 
 function printQuote() {
-  getRandomQuote();
+  var quote = getRandomQuote();
   let HTML = `
     <p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}
