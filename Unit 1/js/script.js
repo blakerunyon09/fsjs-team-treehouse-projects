@@ -5,7 +5,7 @@ project 1 - A Random Quote Generator
 
 // Quotes Array
 
-var quotes = [
+let quotes = [
   {
     quote: "We are all responsible for everyone else—but I am more responsible than all the others.",
     source: "Fyodor Dostoyevsky",
@@ -42,17 +42,17 @@ var quotes = [
 // Random Number Function
 
 function getRandomQuote() {
-  var i = Math.floor(Math.random() * Math.floor(quotes.length));
-  quote = quotes[i];
+  let i = Math.floor(Math.random() * Math.floor(quotes.length));
+  return quote = quotes[i];
 };
 
 // Random RGB Color - Credit: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
 
 function randomColor() {
-  var red = Math.floor(Math.random() * 256);
-  var green = Math.floor(Math.random() * 256);
-  var blue = Math.floor(Math.random() * 256);
-  var RGB = `rgb(${red},${green},${blue})`;
+  let red = Math.floor(Math.random() * 256);
+  let green = Math.floor(Math.random() * 256);
+  let blue = Math.floor(Math.random() * 256);
+  let RGB = `rgb(${red},${green},${blue})`;
 
   document.body.style.background = RGB;
 }
@@ -61,7 +61,7 @@ function randomColor() {
 
 function printQuote() {
   getRandomQuote();
-  var HTML = `
+  let HTML = `
     <p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}
     `;
@@ -87,7 +87,7 @@ randomColor();
 
 // On Click printQuote()
 
-var buttonClick = document.getElementById('load-quote').addEventListener("click", printQuote, false);
+let buttonClick = document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
 // Auto Change Quotes - Credit: https://www.w3schools.com/jsref/met_win_setinterval.asp
 
