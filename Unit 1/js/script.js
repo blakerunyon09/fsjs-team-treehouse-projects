@@ -41,7 +41,7 @@ var quotes = [
 
 // Random Number Function
 
-function getRandomInt(max) {
+function getRandomQuote(max) {
   return Math.floor(Math.random() * Math.floor(max));
 };
 
@@ -59,7 +59,7 @@ function randomColor() {
 // Print Quote Function
 
 function printQuote() {
-  var quoteNum = getRandomInt(quotes.length);
+  var quoteNum = getRandomQuote(quotes.length);
   var HTML = `
     <p class="quote">${quotes[quoteNum]["quote"]}</p>
     <p class="source">${quotes[quoteNum]["source"]}
