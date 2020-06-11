@@ -41,8 +41,13 @@ var quotes = [
 
 // Random Number Function
 
-function getRandomQuote(max) {
+/*function getRandomQuote(max) {
   return Math.floor(Math.random() * Math.floor(max));
+};*/
+
+function getRandomQuote() {
+  var i = Math.floor(Math.random() * Math.floor(quotes.length));
+  quote = quotes[i];
 };
 
 // Random RGB Color - Credit: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-40.php
@@ -59,19 +64,19 @@ function randomColor() {
 // Print Quote Function
 
 function printQuote() {
-  var quoteNum = getRandomQuote(quotes.length);
+  getRandomQuote();
   var HTML = `
-    <p class="quote">${quotes[quoteNum]["quote"]}</p>
-    <p class="source">${quotes[quoteNum]["source"]}
+    <p class="quote">${quote.quote}</p>
+    <p class="source">${quote.source}
     `;
-  if (quotes[quoteNum]["citation"]) {
-    HTML += `<span class="citation">${quotes[quoteNum]["citation"]}</span>`;
+  if (quote.citation) {
+    HTML += `<span class="citation">${quote.citation}</span>`;
   }
-  if (quotes[quoteNum]["year"]) {
-    HTML += `<span class="year">${quotes[quoteNum]["year"]}</span>`;
+  if (quote.year) {
+    HTML += `<span class="year">${quote.year}</span>`;
   }
-  if (quotes[quoteNum]["country"]) {
-    HTML += `<span> - ${quotes[quoteNum]["country"]}</span>`;
+  if (quote.country) {
+    HTML += `<span> - ${quote.country}</span>`;
   }
   HTML += `</p>`
   document.getElementById("quote-box").innerHTML = HTML;
