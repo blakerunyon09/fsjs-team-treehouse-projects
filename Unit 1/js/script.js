@@ -60,7 +60,7 @@ function randomColor() {
 // Print Quote Function
 
 function printQuote() {
-  var quote = getRandomQuote();
+  let quote = getRandomQuote();
   let HTML = `
     <p class="quote">${quote.quote}</p>
     <p class="source">${quote.source}
